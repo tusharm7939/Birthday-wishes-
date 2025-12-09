@@ -1,0 +1,162 @@
+body {
+    /* Light Pink Background */
+    background-color: #fce4ec; /* Very light pink */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+    text-align: center;
+}
+
+/* --- NEW: GIF OVERLAY STYLING --- */
+.gif-overlay {
+    position: fixed; /* Ensures it covers the entire page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* *** PASTE YOUR CUTE BIRTHDAY GIF URL HERE ***
+       Find a cute, repeating GIF (like small confetti, hearts, etc.) and paste its direct URL below.
+    */
+    background-image: url('https://tenor.com/search/cute-happy-birthday-gifs, https://tenor.com/search/cute-happy-birthday-gifs'); 
+    background-repeat: repeat; /* This makes the GIF tile/repeat across the screen */
+    background-size: 200px 200px; /* Adjust size of the GIF tiles if needed */
+    opacity: 0.3; /* Important: Makes the GIF subtle so it's not distracting */
+    z-index: 1; /* Keeps it behind the main content */
+    pointer-events: none; /* Allows the user to click on the content behind it */
+}
+
+/* Ensure the main container is on top of the GIF overlay */
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    z-index: 10; /* Higher z-index ensures it sits above the GIF overlay (z-index: 1) */
+}
+
+/* --- Photo Gallery Style --- */
+#photo-gallery {
+    margin-bottom: 20px;
+}
+.photo {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    border-radius: 50%; 
+    margin: 0 10px;
+    border: 3px solid #ff80ab;
+}
+
+/* --- Button Style --- */
+#blow-button {
+    background-color: #ff80ab; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#blow-button:hover {
+    background-color: #e06692;
+}
+
+/* --- Candles and Cake Style --- */
+.cake {
+    width: 150px;
+    height: 80px;
+    background-color: #a0522d; 
+    border-radius: 5px;
+    margin: 20px auto 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+.candle {
+    width: 8px;
+    height: 30px;
+    background-color: #ffffff; 
+    border-radius: 2px 2px 0 0;
+    position: relative;
+}
+.flame {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 12px;
+    background-color: orange;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px yellow, 0 0 10px 4px rgba(255, 165, 0, 0.5);
+    transition: all 0.5s ease-out;
+}
+.flame.blown-out {
+    opacity: 0;
+    box-shadow: none;
+    height: 0;
+}
+
+/* --- Message Style --- */
+#birthday-message {
+    padding: 20px;
+    border: 2px dashed #ff80ab;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#birthday-message h2 {
+    color: #ff80ab;
+    font-size: 1.8em;
+}
+#birthday-message p {
+    color: #444;
+    line-height: 1.6;
+}
+.hidden {
+    display: none;
+}
+
+/* --- Balloon Style and Animation --- */
+.balloon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Ensures balloons float above the GIF, but below the content */
+}
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background-color: #ffb6c1; 
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.1);
+    animation: float 10s infinite linear;
+    opacity: 0.8;
+}
+
+/* Different balloon positions and colors */
+.balloon:nth-child(1) { left: 10%; top: 100%; animation-duration: 12s; background-color: #ffd1dc; }
+.balloon:nth-child(2) { left: 40%; top: 100%; animation-duration: 9s; background-color: #ffb6c1; }
+.balloon:nth-child(3) { left: 65%; top: 100%; animation-duration: 15s; background-color: #f08080; }
+.balloon:nth-child(4) { left: 85%; top: 100%; animation-duration: 11s; background-color: #ffecd1; }
+.balloon:nth-child(5) { left: 25%; top: 100%; animation-duration: 13s; background-color: #ffb6c1; }
+
+/* Balloon Animation Keyframes */
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-500px); opacity: 1; }
+    100% { transform: translateY(-1000px); opacity: 0; }
+}
